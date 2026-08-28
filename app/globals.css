@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define la familia de fuente principal para todo el sitio (usa Geist y alternativa estándar) */
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  
+  /* Define una tipografía monoespaciada opcional (estilo código de programación) */
+  --font-mono: var(--font-geist-mono), monospace;
+  
+  /*Variables de colores de toda la pagina*/
+  --color-tactical-green: #0a402a;
+  --color-tactical-red: #d32f2f;
+  --color-tactical-dark: #111111;
+}
+
+body {
+  font-family: var(--font-sans);
+}
