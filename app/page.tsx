@@ -1,11 +1,12 @@
+import HeroSlider from "@/components/home/heroSlider";
+import StatsOverview from "@/components/home/StatsOverview";
 export default function HomePage() {
   return (
     <main className="flex-1">
-      {/* Aquí irán tus componentes de inicio, ej: <Hero /> */}
-      <h1 className="text-3xl font-bold text-center py-20">
-        Bienvenido a Tactical Solutions
-        cd
-      </h1>
+      {/* Llamamos al componente HeroSlider creado */}
+      <HeroSlider />
+      <StatsOverview />
+      {/* Aquí abajo irán los siguientes componentes de la home cuando los crees */}
     </main>
   );
 }
