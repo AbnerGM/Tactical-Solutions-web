@@ -1,87 +1,140 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-900 text-zinc-400 border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+    <footer className="w-full bg-[#0c1e15] text-zinc-300 pt-16 pb-8 border-t border-emerald-900/40 font-sans">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* Contenido principal del footer en columnas */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-zinc-800">
+        {/* Contenedor principal alineado uniformemente a la izquierda por columna con ancho óptimo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 items-start">
           
-          {/* Columna 1: Logo e identidad */}
-          <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="inline-block">
-              <Image 
+          {/* Columna 1: Imagen de Logo y descripción un poco más ancha */}
+          <div className="lg:col-span-1.2 flex flex-col items-start space-y-4 text-left">
+            <div className="w-36 h-12 relative flex items-center">
+              <img 
                 src="/images/inicio/logo-tactical.png" 
-                alt="Tactical Solutions" 
-                width={120} 
-                height={50} 
-                className="h-10 w-auto object-contain brightness-0 invert" 
+                alt="Logo Tactical Solutions" 
+                className="max-h-full w-auto object-contain"
               />
-            </Link>
-            <p className="text-sm text-zinc-400 max-w-sm leading-relaxed">
-              Soluciones y proyectos electromecánicos orientados a optimizar los procesos de producción y automatización industrial.
+            </div>
+            <p className="text-zinc-300/80 text-xs md:text-sm leading-relaxed max-w-xs">
+              Nuestra creencia tiene solicitud no cómo comodidad evidente. Arriba deleitamos .
             </p>
           </div>
 
-          {/* Columna 2: Navegación rápida */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
-              Secciones
-            </h3>
-            <ul className="space-y-2.5 text-sm">
+          {/* Columna 2: Compañía */}
+          <div className="flex flex-col items-start space-y-3 text-left">
+            <h4 className="text-white font-bold text-sm tracking-wide uppercase">
+              Compañía
+            </h4>
+            <ul className="flex flex-col space-y-2.5 text-xs md:text-sm text-zinc-300/80">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Inicio
+                <Link href="/horario" className="hover:text-emerald-400 transition-colors">
+                  Horario comercial
                 </Link>
               </li>
               <li>
-                <Link href="/nosotros" className="hover:text-white transition-colors">
-                  Nosotros
+                <Link href="/devoluciones" className="hover:text-emerald-400 transition-colors">
+                  Política de devoluciones
                 </Link>
               </li>
               <li>
-                <Link href="/servicios" className="hover:text-white transition-colors">
-                  Servicios
+                <Link href="/terminos" className="hover:text-emerald-400 transition-colors">
+                  Términos y condiciones
                 </Link>
               </li>
               <li>
-                <Link href="/proyectos" className="hover:text-white transition-colors">
-                  Proyectos
-                </Link>
-              </li>
-              <li>
-                <Link href="/galeria" className="hover:text-white transition-colors">
-                  Galería
+                <Link href="/privacidad" className="hover:text-emerald-400 transition-colors">
+                  Política de privacidad
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Columna 3: Contacto directo */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
-              Contacto
-            </h3>
-            <ul className="space-y-2.5 text-sm text-zinc-400">
-              <li>Lima, Perú</li>
+          {/* Columna 3: Sobre nosotros */}
+          <div className="flex flex-col items-start space-y-3 text-left">
+            <h4 className="text-white font-bold text-sm tracking-wide uppercase">
+              Sobre nosotros
+            </h4>
+            <ul className="flex flex-col space-y-2.5 text-xs md:text-sm text-zinc-300/80">
               <li>
-                <Link href="/contacto" className="hover:text-white transition-colors">
-                  Escríbenos un mensaje
+                <Link href="/nosotros" className="hover:text-emerald-400 transition-colors">
+                  Sobre nosotros
                 </Link>
+              </li>
+              <li>
+                <Link href="/derechos" className="hover:text-emerald-400 transition-colors">
+                  Aviso de derechos de autor
+                </Link>
+              </li>
+              <li>
+                <Link href="/pagos" className="hover:text-emerald-400 transition-colors">
+                  Métodos de pago
+                </Link>
+              </li>
+              <li>
+                <Link href="/informacion" className="hover:text-emerald-400 transition-colors">
+                  Información
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 4: Horario laboral */}
+          <div className="flex flex-col items-start space-y-3 text-left">
+            <h4 className="text-white font-bold text-sm tracking-wide uppercase">
+              Horario laboral
+            </h4>
+            <ul className="flex flex-col space-y-2.5 text-xs md:text-sm text-zinc-300/80">
+              <li>
+                <Link href="/terminos" className="hover:text-emerald-400 transition-colors">
+                  Términos y condiciones
+                </Link>
+              </li>
+              <li>
+                <Link href="/horario" className="hover:text-emerald-400 transition-colors">
+                  Horario comercial
+                </Link>
+              </li>
+              <li>
+                <Link href="/derechos" className="hover:text-emerald-400 transition-colors">
+                  Aviso de derechos de autor
+                </Link>
+              </li>
+              <li>
+                <Link href="/nosotros" className="hover:text-emerald-400 transition-colors">
+                  Sobre nosotros
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 5: Información de contacto */}
+          <div className="flex flex-col items-start space-y-3 text-left">
+            <h4 className="text-white font-bold text-sm tracking-wide uppercase">
+              Información de contacto
+            </h4>
+            <ul className="flex flex-col space-y-3 text-xs md:text-sm text-zinc-300/80">
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">+</span>
+                <span>+1-(314) 892-2600</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">@</span>
+                <span>Financialservice@mail.com</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">#</span>
+                <span>969 Pine Street, Grand Rapids, MI 49503</span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Barra inferior de Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} Tactical Solutions SAC. Todos los derechos reservados.</p>
-          <div className="flex gap-6">
-            <span>Soporte e ingeniería industrial</span>
-          </div>
+        {/* Línea divisoria inferior con texto centrado */}
+        <div className="border-t border-emerald-900/40 pt-6 flex justify-center text-xs text-zinc-400">
+          <p>© 2026 Tactical Solutions EIRL / Todos los derechos reservados</p>
         </div>
 
       </div>
