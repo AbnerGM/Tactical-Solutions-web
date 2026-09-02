@@ -25,8 +25,8 @@ export default function Navbar() {
           <li>
             <Link 
               href="/" 
-              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-tactical-green after:transition-all after:duration-300 ${
-                isActive("/") ? "text-tactical-green after:w-full" : "text-zinc-700 hover:text-tactical-green after:w-0 hover:after:w-full"
+              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[var(--color-tactical-green)] after:transition-all after:duration-300 ${
+                isActive("/") ? "text-[var(--color-tactical-green)] after:w-full" : "text-zinc-700 hover:text-[var(--color-tactical-green)] after:w-0 hover:after:w-full"
               }`}
             >
               Inicio
@@ -35,8 +35,8 @@ export default function Navbar() {
           <li>
             <Link 
               href="/nosotros" 
-              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-tactical-green after:transition-all after:duration-300 ${
-                isActive("/nosotros") ? "text-tactical-green after:w-full" : "text-zinc-700 hover:text-tactical-green after:w-0 hover:after:w-full"
+              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[var(--color-tactical-green)] after:transition-all after:duration-300 ${
+                isActive("/nosotros") ? "text-[var(--color-tactical-green)] after:w-full" : "text-zinc-700 hover:text-[var(--color-tactical-green)] after:w-0 hover:after:w-full"
               }`}
             >
               Nosotros
@@ -45,8 +45,8 @@ export default function Navbar() {
           <li>
             <Link 
               href="/servicios" 
-              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-tactical-green after:transition-all after:duration-300 ${
-                isActive("/servicios") ? "text-tactical-green after:w-full" : "text-zinc-700 hover:text-tactical-green after:w-0 hover:after:w-full"
+              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[var(--color-tactical-green)] after:transition-all after:duration-300 ${
+                isActive("/servicios") ? "text-[var(--color-tactical-green)] after:w-full" : "text-zinc-700 hover:text-[var(--color-tactical-green)] after:w-0 hover:after:w-full"
               }`}
             >
               Servicios
@@ -55,8 +55,8 @@ export default function Navbar() {
           <li>
             <Link 
               href="/proyectos" 
-              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-tactical-green after:transition-all after:duration-300 ${
-                isActive("/proyectos") ? "text-tactical-green after:w-full" : "text-zinc-700 hover:text-tactical-green after:w-0 hover:after:w-full"
+              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[var(--color-tactical-green)] after:transition-all after:duration-300 ${
+                isActive("/proyectos") ? "text-[var(--color-tactical-green)] after:w-full" : "text-zinc-700 hover:text-[var(--color-tactical-green)] after:w-0 hover:after:w-full"
               }`}
             >
               Proyectos
@@ -65,8 +65,8 @@ export default function Navbar() {
           <li>
             <Link 
               href="/contacto" 
-              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-tactical-green after:transition-all after:duration-300 ${
-                isActive("/contacto") ? "text-tactical-green after:w-full" : "text-zinc-700 hover:text-tactical-green after:w-0 hover:after:w-full"
+              className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[var(--color-tactical-green)] after:transition-all after:duration-300 ${
+                isActive("/contacto") ? "text-[var(--color-tactical-green)] after:w-full" : "text-zinc-700 hover:text-[var(--color-tactical-green)] after:w-0 hover:after:w-full"
               }`}
             >
               Contactanos
@@ -78,11 +78,12 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/galeria"
-            className={`px-12 py-3 font-bold text-base transition-colors shadow-lg shadow-tactical-green/20 ${
-              isActive("/galeria") ? "bg-emerald-900 text-white" : "bg-tactical-green text-white hover:bg-emerald-800"
-            }`}
+            style={{
+              backgroundImage: "linear-gradient(135deg, var(--color-tactical-green) 50%, var(--color-tactical-red) 50%)"
+            }}
+            className="px-12 py-3 font-bold text-base text-white shadow-lg hover:opacity-95 transition-opacity relative overflow-hidden inline-block text-center"
           >
-            Galería
+            <span className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">Galería</span>
           </Link>
         </div>
 
@@ -115,7 +116,7 @@ export default function Navbar() {
                 href="/"
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 transition-colors ${
-                  isActive("/") ? "text-tactical-green font-bold" : "text-zinc-700 hover:text-tactical-green"
+                  isActive("/") ? "text-[var(--color-tactical-green)] font-bold" : "text-zinc-700 hover:text-[var(--color-tactical-green)]"
                 }`}
               >
                 Inicio
@@ -126,7 +127,7 @@ export default function Navbar() {
                 href="/nosotros"
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 transition-colors ${
-                  isActive("/nosotros") ? "text-tactical-green font-bold" : "text-zinc-700 hover:text-tactical-green"
+                  isActive("/nosotros") ? "text-[var(--color-tactical-green)] font-bold" : "text-zinc-700 hover:text-[var(--color-tactical-green)]"
                 }`}
               >
                 Nosotros
@@ -137,7 +138,7 @@ export default function Navbar() {
                 href="/servicios"
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 transition-colors ${
-                  isActive("/servicios") ? "text-tactical-green font-bold" : "text-zinc-700 hover:text-tactical-green"
+                  isActive("/servicios") ? "text-[var(--color-tactical-green)] font-bold" : "text-zinc-700 hover:text-[var(--color-tactical-green)]"
                 }`}
               >
                 Servicios
@@ -148,7 +149,7 @@ export default function Navbar() {
                 href="/proyectos"
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 transition-colors ${
-                  isActive("/proyectos") ? "text-tactical-green font-bold" : "text-zinc-700 hover:text-tactical-green"
+                  isActive("/proyectos") ? "text-[var(--color-tactical-green)] font-bold" : "text-zinc-700 hover:text-[var(--color-tactical-green)]"
                 }`}
               >
                 Proyectos
@@ -159,7 +160,7 @@ export default function Navbar() {
                 href="/contacto"
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 transition-colors ${
-                  isActive("/contacto") ? "text-tactical-green font-bold" : "text-zinc-700 hover:text-tactical-green"
+                  isActive("/contacto") ? "text-[var(--color-tactical-green)] font-bold" : "text-zinc-700 hover:text-[var(--color-tactical-green)]"
                 }`}
               >
                 Contactanos
@@ -171,11 +172,12 @@ export default function Navbar() {
             <Link
               href="/galeria"
               onClick={() => setIsOpen(false)}
-              className={`block w-full text-center py-3.5 font-bold text-base transition-colors shadow-md ${
-                isActive("/galeria") ? "bg-emerald-900 text-white" : "bg-tactical-green text-white hover:bg-emerald-800"
-              }`}
+              style={{
+                backgroundImage: "linear-gradient(135deg, var(--color-tactical-green) 50%, var(--color-tactical-red) 50%)"
+              }}
+              className="block w-full text-center py-3.5 font-bold text-base text-white shadow-md hover:opacity-95 transition-opacity relative overflow-hidden"
             >
-              Galería
+              <span className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">Galería</span>
             </Link>
           </div>
         </div>
