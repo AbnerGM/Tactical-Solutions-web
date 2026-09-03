@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GaleriaPrincipal from "@/components/galeria/pr";
+import GaleriaPrincipal from "@/components/galeria/GaleriaContent";
 
 export const metadata: Metadata = {
   title: "Galería de Proyectos | Tactical Solutions",

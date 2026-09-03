@@ -1,8 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+interface AnimatedCounterProps {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  formatter?: (val: number) => string;
+  duration?: number;
+}
+
+function AnimatedCounter({
+  target,
+  prefix = "+",
+  suffix = "",
+  formatter,
+  duration = 2000
+}: AnimatedCounterProps) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let startTime: number | null = null;
+
+          const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.floor(easeOut * target);
+
+            setCount(currentVal);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(target);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  if (formatter) {
+    return <span ref={elementRef}>{formatter(count)}</span>;
+  }
+
+  return (
+    <span ref={elementRef}>
+      {prefix}{count}{suffix}
+    </span>
+  );
+}
 
 interface ServiceCard {
   id: string;
@@ -130,13 +197,13 @@ export default function ServiciosContent() {
   const [selectedServiceModal, setSelectedServiceModal] = useState<ServiceCard | null>(null);
   const [searchFilter, setSearchFilter] = useState("");
 
-  const filteredArticles = ARTICLES_LIST.filter(art => 
+  const filteredArticles = ARTICLES_LIST.filter(art =>
     art.toLowerCase().includes(searchFilter.toLowerCase())
   );
 
   return (
     <div className="bg-white min-h-screen text-zinc-800">
-      
+
       {/* ========================================================= */}
       {/* 1. TOP BANNER / CALLOUT OSCURO ESTILO HORMAQ */}
       {/* ========================================================= */}
@@ -156,7 +223,7 @@ export default function ServiciosContent() {
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase leading-tight">
               ¿Deseas conocer más sobre <br className="hidden sm:inline" />
-              <span className="text-emerald-400">nuestros servicios?</span>
+              <span className="text-white">nuestros servicios?</span>
             </h2>
             <p className="text-zinc-300 text-sm mt-2 max-w-xl">
               Estamos listos para evaluar tus proyectos electromecánicos y ofrecerte soluciones técnicas a medida.
@@ -185,10 +252,10 @@ export default function ServiciosContent() {
       {/* ========================================================= */}
       <section className="py-14 md:py-20 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          
+
           {/* Bloque superior: Imagen destacada + Texto */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
-            
+
             {/* Foto grande izquierda */}
             <div className="lg:col-span-6 relative h-[320px] sm:h-[400px] bg-tactical-dark overflow-hidden shadow-lg">
               <Image
@@ -209,7 +276,7 @@ export default function ServiciosContent() {
                 Con años de experiencia en el sector industrial
               </h2>
               <p className="text-zinc-600 text-sm leading-relaxed">
-                En Tactical Solutions contamos con un equipo multidisciplinario altamente capacitado en montaje electromecánico, integración de automatismos PLC y mantenimiento en plantas. Brindamos soporte técnico directo, reduciendo tiempos de inactividad y garantizando la continuidad de cada operación.
+                En Tactical Solutions contamos con un equipo multidisciplinario highly capacitado en montaje electromecánico, integración de automatismos PLC y mantenimiento en plantas. Brindamos soporte técnico directo, reduciendo tiempos de inactividad y garantizando la continuidad de cada operación.
               </p>
               <div className="pt-2">
                 <Link
@@ -225,7 +292,7 @@ export default function ServiciosContent() {
 
           {/* 4 Mini Cards de Pilares / Control de Calidad */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
+
             <div className="bg-zinc-50 border border-zinc-200 p-5 flex flex-col justify-between">
               <div>
                 <h3 className="font-black text-sm uppercase text-tactical-green tracking-wider mb-2">
@@ -284,7 +351,7 @@ export default function ServiciosContent() {
       {/* ========================================================= */}
       <section id="catalogo-servicios" className="py-16 md:py-24 bg-zinc-100/60 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          
+
           {/* Título de sección idéntico a HORMAQ */}
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 uppercase tracking-tight">
@@ -360,9 +427,9 @@ export default function ServiciosContent() {
       {/* ========================================================= */}
       <section className="py-12 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden shadow-xl border border-zinc-800">
-            
+
             {/* Mitad izquierda negra con estadísticas */}
             <div className="lg:col-span-5 bg-tactical-dark text-white p-8 sm:p-10 flex flex-col justify-between">
               <div>
@@ -376,15 +443,30 @@ export default function ServiciosContent() {
 
               <div className="grid grid-cols-2 gap-6 my-8">
                 <div>
-                  <div className="text-3xl sm:text-4xl font-black text-white">+5k Hras</div>
+                  <div className="text-3xl sm:text-4xl font-black text-white">
+                    <AnimatedCounter
+                      target={5000}
+                      formatter={(val) => {
+                        if (val >= 1000) {
+                          const k = (val / 1000).toFixed(val % 1000 === 0 ? 0 : 1);
+                          return `+${k}k Hras`;
+                        }
+                        return `+${val} Hras`;
+                      }}
+                    />
+                  </div>
                   <div className="text-xs text-zinc-400 font-semibold mt-1">Servicios de ingeniería ejecutados</div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl font-black text-emerald-400">+20</div>
+                  <div className="text-3xl sm:text-4xl font-black text-emerald-400">
+                    <AnimatedCounter target={20} prefix="+" />
+                  </div>
                   <div className="text-xs text-zinc-400 font-semibold mt-1">Años de experiencia acumulada</div>
                 </div>
                 <div className="col-span-2">
-                  <div className="text-3xl sm:text-4xl font-black text-white">+300</div>
+                  <div className="text-3xl sm:text-4xl font-black text-white">
+                    <AnimatedCounter target={300} prefix="+" />
+                  </div>
                   <div className="text-xs text-zinc-400 font-semibold mt-1">Proyectos industriales entregados</div>
                 </div>
               </div>
@@ -428,7 +510,7 @@ export default function ServiciosContent() {
       {/* ========================================================= */}
       <section className="py-16 md:py-24 bg-zinc-50 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 uppercase tracking-tight">
               BLOGS Y NOTICIAS
@@ -439,7 +521,7 @@ export default function ServiciosContent() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            
+
             {/* Columna Izquierda (8 cols): Casos de Éxito y Proyectos (2x2 cards) */}
             <div className="lg:col-span-8 space-y-6">
               <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
@@ -514,7 +596,7 @@ export default function ServiciosContent() {
 
             {/* Columna Derecha (4 cols): Sidebar idéntica a HORMAQ */}
             <div className="lg:col-span-4 space-y-8">
-              
+
               {/* 1. Buscar Recursos */}
               <div className="bg-white border border-zinc-200 p-6 shadow-sm">
                 <h4 className="text-xs font-black uppercase tracking-wider text-zinc-900 mb-3 border-b border-zinc-100 pb-2">
