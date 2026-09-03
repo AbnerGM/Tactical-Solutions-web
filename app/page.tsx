@@ -12,8 +12,9 @@ export default function HomePage() {
       <HeroSlider />
       <StatsOverview />
       <IndustrialStatsBanner/>
-      <UbicacionEmpresaSection/>
       <FormularioContacto/>
+      <UbicacionEmpresaSection/>
+      
       {/* Aquí abajo irán los siguientes componentes de la home cuando los crees */}
     </main>
   );
