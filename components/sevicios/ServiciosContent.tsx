@@ -227,7 +227,7 @@ export default function ServiciosContent() {
                 <div className="relative max-w-6xl mx-auto px-6 w-full z-10">
                     <h1 className="text-2xl sm:text-3xl md:text-5xl font-sans font-black uppercase tracking-wider text-white leading-tight">
                         Nuestros{" "}
-                        <span className="text-[var(--color-tactical-green)]">
+                        <span>
                             Servicios
                         </span>
                     </h1>
