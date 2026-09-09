@@ -268,11 +268,11 @@ export default function ServiciosContent() {
             {/* ========================================================= */}
             {/* 2. SECCIÓN ¿POR QUÉ ELEGIRNOS? / EXPERIENCIA (ESTILO HORMAQ) */}
             {/* ========================================================= */}
-            <section className="py-14 md:py-20 bg-white border-b border-zinc-200">
+            <section className="py-10 md:py-12 bg-white border-b border-zinc-200">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* Bloque superior: Imagen destacada + Texto */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
 
                         {/* Foto grande izquierda */}
                         <div className="lg:col-span-6 relative h-[320px] sm:h-[400px] bg-tactical-dark overflow-hidden shadow-lg">
@@ -367,11 +367,11 @@ export default function ServiciosContent() {
             {/* ========================================================= */}
             {/* 3. SECCIÓN PRINCIPAL: NUESTROS SERVICIOS (GRILLA HORMAQ 3x2) */}
             {/* ========================================================= */}
-            <section id="catalogo-servicios" className="py-16 md:py-24 bg-zinc-100/60 border-b border-zinc-200">
+            <section id="catalogo-servicios" className="py-9 md:py-11 bg-zinc-100/60 border-b border-zinc-200">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* Título de sección idéntico a HORMAQ */}
-                    <div className="text-center max-w-3xl mx-auto mb-14">
+                    <div className="text-center max-w-3xl mx-auto mb-8">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 uppercase tracking-tight">
                             NUESTROS SERVICIOS
                         </h2>
@@ -443,10 +443,10 @@ export default function ServiciosContent() {
             {/* ========================================================= */}
             {/* 5. SECCIÓN INFERIOR: BLOGS, NOTICIAS, VIDEOS & SIDEBAR (ESTILO HORMAQ) */}
             {/* ========================================================= */}
-            <section className="py-16 md:py-24 bg-zinc-50 border-b border-zinc-200">
+            <section className="py-9 md:py-11 bg-zinc-50 border-b border-zinc-200">
                 <div className="max-w-7xl mx-auto px-6">
 
-                    <div className="text-center max-w-3xl mx-auto mb-14">
+                    <div className="text-center max-w-3xl mx-auto mb-8">
                         <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 uppercase tracking-tight">
                             BLOGS Y NOTICIAS
                         </h2>
