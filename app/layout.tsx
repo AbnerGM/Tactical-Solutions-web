@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tactical Solutions",
-  description: "Soluciones tecnológicas e industriales",
+  description: "Soluciones eléctricas e industriales",
+  icons: {
+    icon: "/images/icons/icon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -25,11 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white text-zinc-900">
+    <html lang="es" className="h-full antialiased">
+      <body 
+        className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col bg-white text-zinc-900 font-sans`}
+      >
         <Navbar />
         <div className="flex-1">{children}</div>
         <Footer />

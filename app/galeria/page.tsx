@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import GaleriaContent from "@/components/galeria/GaleriaContent";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Galería de Proyectos e Instalaciones | Tactical Solutions",
-  description: "Explora la galería de proyectos de Tactical Solutions: montaje de tableros eléctricos, automatización PLC, mantenimiento industrial y ejecuciones en campo.",
+  description: "Explora la galería de proyectos de Tactical Solutions: montaje de tableros eléctricos, automatización PLC, mantenimiento industrial y ejecuciones en field.",
 };
 
 export default function GaleriaPage() {
