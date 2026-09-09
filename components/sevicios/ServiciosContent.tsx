@@ -206,53 +206,62 @@ export default function ServiciosContent() {
 
             {/* ========================================================= */}
             {/* ========================================================= */}
-            {/* 1. TOP BANNER / HERO CON SOMBREADO E IMAGEN DESTACADA */}
+            {/* 1. TOP BANNER / HERO COMPACTO CON IMAGEN DE GALERÍA */}
             {/* ========================================================= */}
-            <section className="relative bg-tactical-dark text-white py-14 sm:py-16 md:py-20 overflow-hidden border-b border-zinc-800">
-                {/* Imagen de fondo nítida y visible */}
-                <div className="absolute inset-0 z-0">
+            <section className="relative w-full h-[220px] sm:h-[280px] md:h-[310px] bg-tactical-dark text-white flex items-center font-sans overflow-hidden">
+                {/* Imagen de fondo — imagen de galería (montaje CCM) */}
+                <div className="absolute -inset-2 z-0">
                     <Image
-                        src="/images/inicio/tablero.jpg"
-                        alt="Tableros eléctricos y automatización industrial"
+                        src="/images/galeria/montaje-ccm.jpg"
+                        alt="Montaje electromecánico y centro de control de motores"
                         fill
-                        className="object-cover object-center scale-100 sm:scale-105 filter brightness-95 contrast-105"
+                        className="object-cover object-center"
                         priority
                     />
                 </div>
 
-                {/* Capas de sombreado elegante para contraste */}
-                <div className="absolute inset-0 bg-gradient-to-r from-tactical-dark/95 via-tactical-dark/75 to-tactical-dark/25 z-[1]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-[1]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_50%,rgba(15,23,42,0.85)_0%,rgba(15,23,42,0.2)_70%,transparent_100%)] z-[1]" />
+                {/* Capa de sombreado lateral consistente con BannerContacto */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-tactical-dark)] via-[var(--color-tactical-dark)]/80 to-[var(--color-tactical-dark)]/40 z-[1]" />
 
-                <div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 z-10">
-                    <div className="max-w-2xl">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight text-white drop-shadow-md">
-                            ¿Deseas conocer más sobre <br className="hidden sm:inline" />
-                            <span className="text-tactical-green">
-                                nuestros servicios?
-                            </span>
-                        </h2>
+                {/* Contenido del banner */}
+                <div className="relative max-w-6xl mx-auto px-6 w-full z-10">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-sans font-black uppercase tracking-wider text-white leading-tight">
+                        Nuestros{" "}
+                        <span className="text-[var(--color-tactical-green)]">
+                            Servicios
+                        </span>
+                    </h1>
+                    <p className="text-xs sm:text-sm md:text-base font-sans font-medium text-zinc-300 mt-2 max-w-xl">
+                        Soluciones electromecánicas y de automatización a medida para la industria.
+                    </p>
+                    <div className="w-16 h-1 bg-[var(--color-tactical-green)] mt-4" />
 
-                        <p className="text-zinc-200 text-sm sm:text-base mt-3 max-w-xl font-medium leading-relaxed drop-shadow-sm">
-                            Estamos listos para evaluar tus proyectos electromecánicos y ofrecerte soluciones técnicas a medida.
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-3.5 w-full md:w-auto">
+                    {/* Botones de acción compactos */}
+                    <div className="flex flex-wrap items-center gap-3 mt-5">
                         <a
                             href="#catalogo-servicios"
-                            className="px-6 py-3.5 bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors border border-zinc-700 text-center flex-1 md:flex-none shadow"
+                            className="px-5 py-2.5 bg-zinc-900/70 hover:bg-zinc-800 text-white font-sans font-bold text-[10px] sm:text-xs uppercase tracking-wider transition-colors border border-zinc-600 text-center"
                         >
                             Ver Servicios
                         </a>
                         <Link
                             href="/contacto"
-                            className="px-7 py-3.5 bg-tactical-green hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md text-center flex-1 md:flex-none"
+                            className="px-5 py-2.5 bg-[var(--color-tactical-green)] hover:bg-emerald-900 text-white font-sans font-bold text-[10px] sm:text-xs uppercase tracking-wider transition-colors shadow-md text-center"
                         >
                             Solicitar Cotización
                         </Link>
                     </div>
+                </div>
+
+                {/* Corte diagonal inferior SVG — consistente con BannerContacto */}
+                <div className="absolute -bottom-[1px] left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+                    <svg
+                        viewBox="0 0 1200 120"
+                        preserveAspectRatio="none"
+                        className="relative block w-full h-8 sm:h-10 md:h-12 fill-current text-white scale-[1.02]"
+                    >
+                        <path d="M1200 0L0 120H1200V0Z" />
+                    </svg>
                 </div>
             </section>
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServiciosContent from "@/components/common/sevicios/ServiciosContent";
+import ServiciosContent from "@/components/sevicios/ServiciosContent";
 
 export const metadata: Metadata = {
   title: "Servicios Especializados en Automatización y Tableros | Tactical Solutions",
