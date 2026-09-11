@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0c1e15] text-zinc-300 pt-16 pb-8 border-t border-emerald-900/40 font-sans">
+    <footer className="w-full bg-tactical-green text-zinc-300 pt-16 pb-8 border-t border-emerald-900/40 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Contenedor principal alineado uniformemente a la izquierda por columna con ancho óptimo */}
